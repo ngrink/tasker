@@ -59,3 +59,11 @@ func (t *Task) getAge() string {
 		return fmt.Sprintf("%ds", seconds)
 	}
 }
+
+func (t *Task) getStatusMark() string {
+	if t.IsDone {
+		return "✅"
+	} else {
+		return ""
+	}
+}
