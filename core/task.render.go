@@ -27,19 +27,3 @@ func (t *TaskContainer) RenderAll() {
 	table.Render()
 	fmt.Println()
 }
-
-func (t *TaskContainer) Render() {
-
-}
-
-// func formatDeadline(deadline time.Time) string {
-// 	var deadlineStr string
-
-// 	if deadline.IsZero() {
-// 		deadlineStr = ""
-// 	} else {
-// 		deadlineStr = deadline.Format(time.UnixDate)
-// 	}
-
-// 	return deadlineStr
-// }

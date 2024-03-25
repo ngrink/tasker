@@ -1,7 +1,3 @@
-/*
-Copyright © 2024 Nikolay Grinko <ngrink.io@gmail.com>
-*/
-
 package cmd
 
 import (
