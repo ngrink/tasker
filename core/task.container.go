@@ -26,7 +26,7 @@ func (t *TaskContainer) Complete(idx int) error {
 		return fmt.Errorf("Task with number {%d} not exists", idx)
 	}
 
-	task := t.Data[idx]
+	task := &t.Data[idx]
 	task.Complete()
 
 	return nil
@@ -37,7 +37,7 @@ func (t *TaskContainer) Uncomplete(idx int) error {
 		return fmt.Errorf("Task with number {%d} not exists", idx)
 	}
 
-	task := t.Data[idx]
+	task := &t.Data[idx]
 	task.Uncomplete()
 
 	return nil
