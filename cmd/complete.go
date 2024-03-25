@@ -15,14 +15,14 @@ var completeCmd = &cobra.Command{
 	Long:  "Mark task as completed",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		id, err := strconv.Atoi(args[0])
+		idx, err := strconv.Atoi(args[0])
 		if err != nil {
 			log.Fatal(err)
 		}
-		core.Tasks.Complete(id)
+		core.Tasks.Complete(idx)
 		core.Tasks.Save()
 
-		fmt.Printf("Task with id %d marked as completed\n", id)
+		fmt.Printf("Task with number %d marked as completed\n", idx)
 	},
 }
 

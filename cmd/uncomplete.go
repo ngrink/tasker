@@ -15,14 +15,14 @@ var uncompleteCmd = &cobra.Command{
 	Long:  "Mark task as uncompleted",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		id, err := strconv.Atoi(args[0])
+		idx, err := strconv.Atoi(args[0])
 		if err != nil {
 			log.Fatal(err)
 		}
-		core.Tasks.Uncomplete(id)
+		core.Tasks.Uncomplete(idx)
 		core.Tasks.Save()
 
-		fmt.Printf("Task with id %d marked as uncompleted\n", id)
+		fmt.Printf("Task with number %d marked as uncompleted\n", idx)
 	},
 }
 
