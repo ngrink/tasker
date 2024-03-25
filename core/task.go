@@ -1,6 +1,9 @@
 package core
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 type Task struct {
 	Description string
@@ -35,4 +38,24 @@ func (t *Task) Complete() {
 func (t *Task) Uncomplete() {
 	t.IsDone = false
 	t.CompletedAt = time.Time{}
+}
+
+func (t *Task) getAge() string {
+	duration := time.Since(t.CreatedAt)
+
+	days := int64(duration.Hours()) / 24
+	hours := int64(duration.Hours()) % 24
+	minutes := int64(duration.Minutes()) % 60
+	seconds := int64(duration.Seconds()) % 60
+
+	switch {
+	case days > 0:
+		return fmt.Sprintf("%dd", days)
+	case hours > 0:
+		return fmt.Sprintf("%dh", hours)
+	case minutes > 0:
+		return fmt.Sprintf("%dm", minutes)
+	default:
+		return fmt.Sprintf("%ds", seconds)
+	}
 }
