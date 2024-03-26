@@ -3,9 +3,12 @@ package core
 import (
 	"fmt"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type Task struct {
+	UUID        uuid.UUID
 	Description string
 	Category    string
 	IsDone      bool
@@ -20,6 +23,7 @@ type CreateTaskDto struct {
 
 func NewTask(data CreateTaskDto) Task {
 	task := Task{
+		UUID:        uuid.New(),
 		Description: data.Description,
 		Category:    data.Category,
 		IsDone:      false,
