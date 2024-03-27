@@ -34,6 +34,10 @@ func NewTask(data CreateTaskDto) Task {
 	return task
 }
 
+func (t *Task) Edit(description string) {
+	t.Description = description
+}
+
 func (t *Task) Complete() {
 	t.IsDone = true
 	t.CompletedAt = time.Now()

@@ -22,6 +22,17 @@ func (t *TaskContainer) Add(task Task) {
 	t.Data = append(t.Data, task)
 }
 
+func (t *TaskContainer) Edit(idx int, description string) error {
+	if idx < 0 || idx >= len(t.Data) {
+		return fmt.Errorf("Task with number {%d} not exists", idx)
+	}
+
+	task := &t.Data[idx]
+	task.Edit(description)
+
+	return nil
+}
+
 func (t *TaskContainer) Complete(idx int) error {
 	if idx < 0 || idx >= len(t.Data) {
 		return fmt.Errorf("Task with number {%d} not exists", idx)
