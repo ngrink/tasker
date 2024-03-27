@@ -10,7 +10,7 @@ import (
 type Task struct {
 	UUID        uuid.UUID
 	Description string
-	Category    string
+	Scope       string
 	IsDone      bool
 	CreatedAt   time.Time
 	CompletedAt time.Time
@@ -18,14 +18,14 @@ type Task struct {
 
 type CreateTaskDto struct {
 	Description string
-	Category    string
+	Scope       string
 }
 
 func NewTask(data CreateTaskDto) Task {
 	task := Task{
 		UUID:        uuid.New(),
 		Description: data.Description,
-		Category:    data.Category,
+		Scope:       data.Scope,
 		IsDone:      false,
 		CreatedAt:   time.Now(),
 		CompletedAt: time.Time{},
@@ -44,7 +44,7 @@ func (t *Task) Uncomplete() {
 	t.CompletedAt = time.Time{}
 }
 
-func (t *Task) getAge() string {
+func (t *Task) GetAge() string {
 	duration := time.Since(t.CreatedAt)
 
 	days := int64(duration.Hours()) / 24
@@ -64,7 +64,7 @@ func (t *Task) getAge() string {
 	}
 }
 
-func (t *Task) getStatusMark() string {
+func (t *Task) GetStatusMark() string {
 	if t.IsDone {
 		return "✅"
 	} else {

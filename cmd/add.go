@@ -13,14 +13,14 @@ var addCmd = &cobra.Command{
 	Long:  "Add task to the list",
 	Args:  cobra.RangeArgs(1, 2),
 	Run: func(cmd *cobra.Command, args []string) {
-		category := ""
+		Scope := ""
 		if len(args) == 2 {
-			category = args[1]
+			Scope = args[1]
 		}
 
 		task := core.NewTask(core.CreateTaskDto{
 			Description: args[0],
-			Category:    category,
+			Scope:       Scope,
 		})
 
 		core.Tasks.Add(task)
