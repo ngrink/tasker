@@ -17,25 +17,7 @@ func (t *TaskContainer) RenderAll() {
 	table.SetBorders(tablewriter.Border{Left: false, Right: false, Top: false, Bottom: false})
 
 	fmt.Println()
-	for idx, task := range Tasks.Data {
-		if !task.IsDone {
-			continue
-		}
-
-		table.Append([]string{
-			strconv.Itoa(idx),
-			task.getStatusMark(),
-			task.Description,
-			task.Category,
-			task.getAge(),
-		})
-	}
-
-	for idx, task := range Tasks.Data {
-		if task.IsDone {
-			continue
-		}
-
+	for idx, task := range t.Data {
 		table.Append([]string{
 			strconv.Itoa(idx),
 			task.getStatusMark(),
