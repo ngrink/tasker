@@ -56,6 +56,18 @@ func (t *TaskContainer) Remove(idx int) error {
 	return nil
 }
 
+func (t *TaskContainer) Purge() {
+	new := []Task{}
+
+	for _, task := range t.Data {
+		if !task.IsDone {
+			new = append(new, task)
+		}
+	}
+
+	t.Data = new
+}
+
 func (t *TaskContainer) Clean() {
 	t.Init()
 	t.Save()
