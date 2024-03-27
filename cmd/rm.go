@@ -19,6 +19,13 @@ var rmCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
+		description := core.Tasks.Data[idx].Description
+		action := fmt.Sprintf("Remove task \"%s\"", description)
+
+		if ok := core.ConfirmAction(action); !ok {
+			fmt.Println("Action rejected")
+			return
+		}
 		core.Tasks.Remove(idx)
 		core.Tasks.Save()
 
