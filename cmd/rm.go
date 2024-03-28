@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/ngrink/tasker/core"
+	"github.com/ngrink/tasker/lib"
 	"github.com/spf13/cobra"
 )
 
@@ -22,7 +23,7 @@ var rmCmd = &cobra.Command{
 		description := core.Tasks.Data[idx].Description
 		action := fmt.Sprintf("Remove task \"%s\"", description)
 
-		if ok := core.ConfirmAction(action); !ok {
+		if ok := lib.ConfirmAction(action); !ok {
 			fmt.Println("Action rejected")
 			return
 		}
