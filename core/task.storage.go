@@ -3,11 +3,19 @@ package core
 import (
 	"encoding/json"
 	"errors"
+	"log"
 	"os"
+	"path/filepath"
+
+	"github.com/ngrink/tasker/lib"
+)
+
+var (
+	tasksPath = lib.GetDataBasepath() + "tasks.json"
 )
 
 func (t *TaskContainer) Load() error {
-	file, err := os.ReadFile(filepath)
+	file, err := os.ReadFile(tasksPath)
 	if err != nil {
 		if errors.Is(err, os.ErrNotExist) {
 			t.Init()
@@ -31,11 +39,15 @@ func (t *TaskContainer) Load() error {
 	return nil
 }
 
-func (t *TaskContainer) Save() error {
+func (t *TaskContainer) Save() {
 	data, err := json.Marshal(t)
 	if err != nil {
-		return err
+		log.Fatal(err)
 	}
 
-	return os.WriteFile(filepath, data, 0644)
+	os.MkdirAll(filepath.Dir(tasksPath), 0755)
+	err = os.WriteFile(tasksPath, data, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

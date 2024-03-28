@@ -6,8 +6,7 @@ import (
 )
 
 var (
-	Tasks    TaskContainer
-	filepath = "data/tasks.json"
+	Tasks TaskContainer
 )
 
 type TaskContainer struct {
