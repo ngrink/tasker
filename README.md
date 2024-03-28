@@ -1,4 +1,9 @@
 # tasker
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/ngrink/tasker)
+[![Release](https://img.shields.io/github/release/ngrink/tasker.svg)](https://github.com/ngrink/tasker/releases/latest)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ngrink/tasker/build.yml?branch=main)](https://github.com/ngrink/tasker/actions?workflow=build)
+![GitHub License](https://img.shields.io/github/license/ngrink/tasker)
+[![Powered By: GoReleaser](https://img.shields.io/badge/powered%20by-goreleaser-green.svg)](https://github.com/goreleaser)
 
 ## Description
 
@@ -8,7 +13,7 @@ The motivation for building this project was to learn how to create user-friendl
 
 ## Installation
 
-`go install github.com/ngrink/tasker`
+`go install github.com/ngrink/tasker@latest`
 
 ## Available commands
   
