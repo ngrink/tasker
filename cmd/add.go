@@ -4,11 +4,12 @@ import (
 	"fmt"
 
 	"github.com/ngrink/tasker/core"
+	"github.com/ngrink/tasker/lib"
 	"github.com/spf13/cobra"
 )
 
 var addCmd = &cobra.Command{
-	Use:   "add",
+	Use:   "add <task> [<scope>]",
 	Short: "Add task to the list",
 	Long:  "Add task to the list",
 	Args:  cobra.RangeArgs(1, 2),
@@ -32,4 +33,8 @@ var addCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(addCmd)
+	addCmd.Example = lib.GenerateExample([]string{
+		`tasker add "Some task"`,
+		`tasker add "Task with scope" dev`,
+	})
 }

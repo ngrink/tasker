@@ -10,7 +10,7 @@ import (
 )
 
 var completeCmd = &cobra.Command{
-	Use:   "complete",
+	Use:   "complete <idx>",
 	Short: "Mark task as completed",
 	Long:  "Mark task as completed",
 	Args:  cobra.ExactArgs(1),

@@ -2,11 +2,12 @@ package cmd
 
 import (
 	"github.com/ngrink/tasker/core"
+	"github.com/ngrink/tasker/lib"
 	"github.com/spf13/cobra"
 )
 
 var lsCmd = &cobra.Command{
-	Use:   "ls",
+	Use:   "ls [<scope>]",
 	Short: "List tasks",
 	Long:  "List tasks",
 	Run: func(cmd *cobra.Command, args []string) {
@@ -20,4 +21,8 @@ var lsCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(lsCmd)
+	lsCmd.Example = lib.GenerateExample([]string{
+		`tasker ls`,
+		`tasker ls dev`,
+	})
 }

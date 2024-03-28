@@ -10,7 +10,7 @@ import (
 )
 
 var uncompleteCmd = &cobra.Command{
-	Use:   "uncomplete",
+	Use:   "uncomplete <idx>",
 	Short: "Mark task as uncompleted",
 	Long:  "Mark task as uncompleted",
 	Args:  cobra.ExactArgs(1),

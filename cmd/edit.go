@@ -6,11 +6,12 @@ import (
 	"strconv"
 
 	"github.com/ngrink/tasker/core"
+	"github.com/ngrink/tasker/lib"
 	"github.com/spf13/cobra"
 )
 
 var editCmd = &cobra.Command{
-	Use:   "edit",
+	Use:   "edit <idx> <task>",
 	Short: "Edit a task",
 	Long:  "Edit a task",
 	Args:  cobra.ExactArgs(2),
@@ -30,4 +31,7 @@ var editCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(editCmd)
+	editCmd.Example = lib.GenerateExample([]string{
+		`tasker edit 7 "Another task description"`,
+	})
 }

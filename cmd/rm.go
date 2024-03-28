@@ -11,9 +11,10 @@ import (
 )
 
 var rmCmd = &cobra.Command{
-	Use:   "rm",
+	Use:   "rm <idx>",
 	Short: "Remove task",
 	Long:  "Remove task",
+	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		idx, err := strconv.Atoi(args[0])
 		if err != nil {
