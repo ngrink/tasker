@@ -7,8 +7,8 @@ import (
 
 var cleanCmd = &cobra.Command{
 	Use:   "clean",
-	Short: "Removes all tasks",
-	Long:  "Removes all tasks",
+	Short: "Remove all tasks",
+	Long:  "Remove all tasks",
 	Run: func(cmd *cobra.Command, args []string) {
 		core.Tasks.Clean()
 	},
