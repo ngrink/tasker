@@ -30,5 +30,10 @@ The motivation for building this project was to learn how to create user-friendl
   
 For a detailed description of the use of each command, use the --help flag.
 
+## Ideas of enhancement
+
+- Add deadlines to prioritize tasks
+- Add the ability to specify a list or range of tasks in commands
+
 ## Lisense
 This project is licensed under the terms of the **MIT** license.
