@@ -75,3 +75,11 @@ func (t *Task) GetStatusMark() string {
 		return ""
 	}
 }
+
+func (t *Task) GetDesriptionWithStatus() string {
+	if t.IsDone {
+		return "✅ " + t.Description
+	} else {
+		return t.Description
+	}
+}

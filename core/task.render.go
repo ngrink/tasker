@@ -10,10 +10,12 @@ import (
 
 func NewTable() *tablewriter.Table {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"#", "Done", "Description", "Scope", "Age"})
+	table.SetHeader([]string{"#", "Description", "Scope", "Age"})
 	table.SetHeaderAlignment(tablewriter.ALIGN_LEFT)
 	table.SetAlignment(tablewriter.ALIGN_LEFT)
-	table.SetColumnAlignment([]int{3, 1, 3, 3, 3})
+	table.SetColumnAlignment([]int{3, 3, 3, 3})
+	table.SetColMinWidth(1, 40)
+	table.SetAutoWrapText(false)
 	table.SetBorders(tablewriter.Border{Left: false, Right: false, Top: false, Bottom: false})
 
 	return table
@@ -26,8 +28,7 @@ func (t *TaskContainer) RenderAll() {
 	for idx, task := range t.Data {
 		table.Append([]string{
 			strconv.Itoa(idx),
-			task.GetStatusMark(),
-			task.Description,
+			task.GetDesriptionWithStatus(),
 			task.Scope,
 			task.GetAge(),
 		})
